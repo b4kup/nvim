@@ -1,0 +1,203 @@
+{
+  "if mounted": {
+    "prefix": "ifm",
+    "body": ["if (!mounted) return;"],
+    "description": "if mounted"
+  },
+  "if context mounted": {
+    "prefix": "ifcm",
+    "body": ["if (!context.mounted) return;"],
+    "description": "if context.mounted"
+  },
+  "Provider.of": {
+    "prefix": "provof",
+    "body": ["Provider.of<${1:Type}>(context, listen: false)$0"],
+    "description": "Provider.of<Type>(context, listen: false)"
+  },
+  "ConsumerStatefulWidget": {
+    "prefix": "consStW",
+    "body": [
+      "class ${1:name} extends ConsumerStatefulWidget {",
+      "  const ${1:name}({super.key});",
+      "",
+      "  @override",
+      "  ConsumerState<${1:name}> createState() => _${1:name}State();",
+      "}",
+      "",
+      "class _${1:name}State extends ConsumerState<${1:name}> {",
+      "  @override",
+      "  Widget build(BuildContext context) {",
+      "    return Container();",
+      "  }",
+      "}"
+    ],
+    "description": "Create a ConsumerStatefulWidget"
+  },
+  "ConsumerWidget": {
+    "prefix": "consW",
+    "body": [
+      "class ${1:name} extends ConsumerWidget {",
+      "  const ${1:name}({super.key});",
+      "",
+      "  @override",
+      "  Widget build(BuildContext context, WidgetRef ref) {",
+      "    return Container();",
+      "  }",
+      "}"
+    ],
+    "description": "Create a ConsumerWidget"
+  },
+  "Mappable Class": {
+    "prefix": "mappCl",
+    "body": [
+      "import 'package:dart_mappable/dart_mappable.dart';",
+      "",
+      "part '$0.mapper.dart';",
+      "",
+      "@MappableClass()",
+      "class ${1:className} with ${1:className}Mappable {",
+      "  ${1:className}();",
+      "}"
+    ],
+    "description": "Create a mappable class"
+  },
+  "Mappable Enum": {
+    "prefix": "mappEn",
+    "body": [
+      "import 'package:dart_mappable/dart_mappable.dart';",
+      "",
+      "part '$2.mapper.dart';",
+      "",
+      "@MappableEnum()",
+      "enum ${1:className} {",
+      "  $0,",
+      "}"
+    ],
+    "description": "Create a mappable enum"
+  },
+  "Typed GoRoute": {
+    "prefix": "troute",
+    "body": [
+      "@TypedGoRoute<${1:name}RouteData>(path: '${2:path}')",
+      "class ${1:name}RouteData extends GoRouteData with \\$${1:name}RouteData {",
+      "  const ${1:name}RouteData();",
+      "",
+      "  @override",
+      "  Widget build(BuildContext context, GoRouterState state) {",
+      "    return ${0:Container}();",
+      "  }",
+      "}"
+    ],
+    "description": "Typed route for go router"
+  },
+  "Provider Notifier Class": {
+    "prefix": "provCl",
+    "body": [
+      "import 'package:riverpod_annotation/riverpod_annotation.dart';",
+      "",
+      "part '$0.g.dart';",
+      "",
+      "@riverpod",
+      "class ${1:className} extends _\\$${1:className} {",
+      "  @override",
+      "  build() {",
+      "    return ${2:null};",
+      "  }",
+      "}"
+    ],
+    "description": "Create a provider notifier class"
+  },
+  "Try Catch Logger": {
+    "prefix": "tcl",
+    "body": [
+      "try {",
+      "  $1",
+      "} catch (error, stackTrace) {",
+      "  logger.e(",
+      "    '',",
+      "    error: error,",
+      "    stackTrace: stackTrace,",
+      "  );",
+      "}"
+    ],
+    "description": "try catch with logger"
+  },
+  "GenerateNiceMocks": {
+    "prefix": "gennicemock",
+    "body": [
+      "@GenerateNiceMocks([",
+      "  MockSpec<$0>(),",
+      "])"
+    ],
+    "description": "GenerateNiceMocks annotation"
+  },
+  "ProviderScope Widget": {
+    "prefix": "provScope",
+    "body": [
+      "ProviderScope(",
+      "  overrides: [",
+      "    $1",
+      "  ],",
+      "  child: MaterialApp(",
+      "    home: ${0:Container()}",
+      "  ),",
+      "),"
+    ],
+    "description": "ProviderScope widget for providers"
+  },
+  "Provider Container Init": {
+    "prefix": "provCon",
+    "body": [
+      "container = createProviderContainer(overrides: [",
+      "  $0",
+      "]);"
+    ],
+    "description": "Provider Container init"
+  },
+  "Provider Container Setup": {
+    "prefix": "provConSetup",
+    "body": [
+      "late ProviderContainer container;",
+      "",
+      "setUp(() {",
+      "  container = createProviderContainer(overrides: [",
+      "    $0",
+      "  ]);",
+      "});"
+    ],
+    "description": "Setup with provider container"
+  },
+  "WidgetsBinding PostFrameCallback": {
+    "prefix": "wbpf",
+    "body": [
+      "WidgetsBinding.instance.addPostFrameCallback((_) {",
+      "  $0",
+      "});"
+    ],
+    "description": "WidgetsBinding Post Frame Callback"
+  },
+  "ScaffoldMessenger SnackBar": {
+    "prefix": "smsb",
+    "body": [
+      "ScaffoldMessenger.of(context).showSnackBar(",
+      "  SnackBar(",
+      "    content: Text('$0'),",
+      "  ),",
+      ");"
+    ],
+    "description": "ScaffoldMessenger Snack Bar"
+  },
+  "Navigator Push MaterialPageRoute": {
+    "prefix": "npmpr",
+    "body": [
+      "Navigator.push(",
+      "  context,",
+      "  MaterialPageRoute(",
+      "    builder: (context) =>",
+      "        $0,",
+      "  ),",
+      ");"
+    ],
+    "description": "Navigator.push MaterialPageRoute"
+  }
+}
