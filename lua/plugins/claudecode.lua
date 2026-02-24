@@ -6,7 +6,7 @@ return {
       split_width_percentage = 0.30,
     },
     diff_opts = {
-      open_in_current_tab = true,
+      open_in_current_tab = false,
       vertical_split = true,
       keep_terminal_focus = true,
     },
