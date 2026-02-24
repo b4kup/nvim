@@ -1,17 +1,5 @@
 return {
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    opts = {
-      filesystem = {
-        filtered_items = {
-          visible = true,
-          hide_dotfiles = false,
-          hide_gitignored = false,
-        },
-      },
-    },
-  },
-  {
     "folke/snacks.nvim",
     opts = {
       picker = {
@@ -37,14 +25,5 @@ return {
         desc = "Two terminals (bottom)",
       },
     },
-  },
-  {
-    "nvim-flutter/flutter-tools.nvim",
-    lazy = false,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "stevearc/dressing.nvim",
-    },
-    config = true,
   },
 }
