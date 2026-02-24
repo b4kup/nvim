@@ -60,3 +60,7 @@ Default LazyVim colorscheme (tokyonight), with habamax as fallback during instal
 ## Primary Language
 
 This config is primarily set up for **Dart/Flutter** development (flutter-tools, neotest-dart, fvm, dart snippets).
+
+## Reference
+
+- [papitz/nvim](https://github.com/papitz/nvim) -- Friend's Neovim config, use as inspiration/reference for ideas and patterns.
