@@ -9,6 +9,11 @@ return {
       running = {
         concurrent = false,
       },
+      discovery = {
+        filter_dir = function(name)
+          return name ~= "patrol_test"
+        end,
+      },
       adapters = {
         ["neotest-dart"] = {
           command = "fvm flutter",
