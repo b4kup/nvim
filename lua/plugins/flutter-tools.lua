@@ -50,6 +50,7 @@ return {
       { "<leader>FD", "<cmd>FlutterVisualDebug<CR>", desc = "Flutter Visual Debug" },
       { "<leader>Fo", "<cmd>FlutterOutlineToggle<CR>", desc = "Flutter Outline" },
       { "<leader>Fd", "<cmd>FlutterDevTools<CR>", desc = "Flutter DevTools" },
+      { "<leader>Ft", "<cmd>FlutterLogToggle<CR>", desc = "Flutter Log Toggle" },
     },
   },
 }

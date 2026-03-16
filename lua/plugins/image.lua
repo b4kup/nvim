@@ -11,6 +11,11 @@ return {
           return fallback(document_path, image_path)
         end,
       },
+      neorg = { enabled = false },
+      syslang = { enabled = false },
+      html = { enabled = false },
+      css = { enabled = false },
     },
+    hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.bmp", "*.ico" },
   },
 }
