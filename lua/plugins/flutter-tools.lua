@@ -115,6 +115,23 @@ return {
       { "<leader>Fo", "<cmd>FlutterOutlineToggle<CR>", desc = "Flutter Outline" },
       { "<leader>Fd", "<cmd>FlutterDevTools<CR>", desc = "Flutter DevTools" },
       { "<leader>Ft", "<cmd>FlutterLogToggle<CR>", desc = "Flutter Log Toggle" },
+      { "<leader>Fe", group = "Emulator" },
+      {
+        "<leader>Fei",
+        function()
+          vim.fn.jobstart("flutter emulators --launch apple_ios_simulator", { detach = true })
+          vim.notify("Launching iOS Simulator...")
+        end,
+        desc = "Flutter Emulator iOS",
+      },
+      {
+        "<leader>Fea",
+        function()
+          vim.fn.jobstart("flutter emulators --launch Medium_Phone_API_36.1", { detach = true })
+          vim.notify("Launching Android Emulator...")
+        end,
+        desc = "Flutter Emulator Android",
+      },
     },
   },
 }
