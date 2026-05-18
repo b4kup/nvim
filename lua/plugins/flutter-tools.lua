@@ -9,6 +9,32 @@ return {
     config = function(_, opts)
       require("flutter-tools").setup(opts)
 
+      -- Mirror Flutter dev log to <cwd>/.flutter.log so Claude can read it.
+      -- Truncated on each app start; buffered handle stays open across lines.
+      local mirror = { handle = nil, path = nil }
+
+      local function mirror_close()
+        if mirror.handle then
+          pcall(mirror.handle.close, mirror.handle)
+          mirror.handle = nil
+        end
+      end
+
+      local function mirror_open(path)
+        mirror_close()
+        mirror.path = path
+        mirror.handle = io.open(path, "w")
+      end
+
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "FlutterToolsAppStarted",
+        callback = function()
+          mirror_open(vim.fn.getcwd() .. "/.flutter.log")
+        end,
+      })
+
+      vim.api.nvim_create_autocmd("VimLeavePre", { callback = mirror_close })
+
       local color_map = {
         [30] = "Comment",
         [31] = "DiagnosticError",
@@ -53,6 +79,11 @@ return {
           return seg.text
         end, segments))
         original_log(clean)
+
+        if mirror.handle then
+          mirror.handle:write(clean, "\n")
+          mirror.handle:flush()
+        end
 
         -- Apply highlights via extmarks (works on nomodifiable buffers)
         if log.buf and vim.api.nvim_buf_is_valid(log.buf) then

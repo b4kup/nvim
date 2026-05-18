@@ -72,6 +72,17 @@ Default LazyVim colorscheme (tokyonight), with habamax as fallback during instal
 
 This config is primarily set up for **Dart/Flutter** development (flutter-tools, neotest-dart, fvm, dart snippets).
 
+## Flutter runtime logs (for Claude)
+
+When user runs Flutter app via `:FlutterRun` (or `<leader>Fa`), live dev log streams to `<project_root>/.flutter.log` (ANSI codes stripped). File truncated on each app start. When user says "check logs" / "look at flutter logs":
+
+- Read `.flutter.log` from project root (where Neovim was started).
+- Filter errors: `grep -E "SEVERE|Exception|Error:|^E/flutter" .flutter.log`
+- Stack frames: lines starting with `#0`..`#N`.
+- Recent only: `tail -n 200 .flutter.log`.
+
+File only exists if app started in current session. Absent file = app never ran or nvim restarted.
+
 ## Reference
 
 - [papitz/nvim](https://github.com/papitz/nvim) -- Friend's Neovim config, use as inspiration/reference for ideas and patterns.
